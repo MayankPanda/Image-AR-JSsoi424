@@ -25,8 +25,8 @@
        
        
                 var storageRef = firebase.storage().ref();
-                var spaceRef = storageRef.child('scene.gltf');
-                storageRef.child('scene.gltf').getDownloadURL().then(function(url) {
+                var spaceRef = storageRef.child('asset.gltf');
+                storageRef.child('asset.gltf').getDownloadURL().then(function(url) {
                     var test = url;
                     alert(url);
                     document.querySelector('a-asset-item').src = test;
@@ -52,7 +52,7 @@
             <a-assets>
                 <a-asset-item
                     id="animated-asset"
-                    src="assets/scene.gltf"
+                    src="test"
                 ></a-asset-item>
             </a-assets>
 
