@@ -28,8 +28,8 @@
                 var spaceRef = storageRef.child('asset.gltf');
                 storageRef.child('asset.gltf').getDownloadURL().then(function(url) {
                     var test = url;
-                    alert(url);
-                    document.querySelector('a-asset-item').src = test;
+                    // alert(url);
+                     document.querySelector('a-asset-item').src = test;
        
                 }).catch(function(error) {
        
