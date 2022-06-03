@@ -1,6 +1,49 @@
 <!doctype html>
 <html>
     <head>
+        <!-- <script>
+            import { getStorage, ref, getDownloadURL } from "firebase/storage";
+            var config = {
+    apiKey: "XXX",
+      appId: "1:519411063260:android:f16616d7879522a73dd719",
+      messagingSenderId: "519411063260",
+      projectId: "location-d2298",
+      storageBucket: "gs://location-d2298.appspot.com",
+  };
+  firebase.initializeApp(config);
+// Create a reference to the file we want to download
+const storage = getStorage(config);
+const starsRef = ref(storage, 'img/stars.jpg');
+
+
+// Get the download URL
+getDownloadURL(starsRef)
+  .then((url) => {
+    // Insert url into an <img> tag to "download"
+  })
+  .catch((error) => {
+    // A full list of error codes is available at
+    // https://firebase.google.com/docs/storage/web/handle-errors
+    switch (error.code) {
+      case 'storage/object-not-found':
+        // File doesn't exist
+        break;
+      case 'storage/unauthorized':
+        // User doesn't have permission to access the object
+        break;
+      case 'storage/canceled':
+        // User canceled the upload
+        break;
+
+      // ...
+
+      case 'storage/unknown':
+        // Unknown error occurred, inspect the server response
+        break;
+    }
+  });
+
+        </script> -->
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -25,11 +68,11 @@
        
        
                 var storageRef = firebase.storage().ref();
-                var spaceRef = storageRef.child('asset.gltf');
-                storageRef.child('asset.gltf').getDownloadURL().then(function(url) {
+                var spaceRef = storageRef.child('360.jfif');
+                storageRef.child('360.jfif').getDownloadURL().then(function(url) {
                     var test = url;
-                    // alert(url);
-                     document.querySelector('a-asset-item').src = test;
+                    alert(url);
+                    document.querySelector('img').src = test;
        
                 }).catch(function(error) {
        
@@ -38,10 +81,10 @@
        
             }
            </script>
-           <!-- <input type="button" value ="view Image" id="viewbtn" onclick="showimage();"> -->
-           <script>showimage()</script>
-           <!-- <img src="test" height="125px" width="200px"/>  -->
-        <a-scene
+           <input type="button" value ="view Image" id="viewbtn" onclick="showimage();">
+           <img src="test" height="125px" width="200px"/> 
+        <img src="gs://location-d2298.appspot.com/360.jfif">
+        <!-- <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
@@ -53,6 +96,7 @@
             <a-assets>
                 <a-asset-item
                     id="animated-asset"
+                    src="assets/scene.gltf"
                 ></a-asset-item>
             </a-assets>
 
@@ -75,8 +119,8 @@
                     gesture-handler
                 ></a-entity>
             </a-marker>
-            <!-- <button>Click Me</button> -->
+            <button>Click Me</button>
             <a-entity camera></a-entity>
-        </a-scene>
+        </a-scene> -->
     </body>
 </html>
