@@ -53,7 +53,7 @@
 
   });
 });  
-var uploader = document.getElementById('uploader2');
+var uploader2 = document.getElementById('uploader2');
   var fileButton =         document.getElementById('fileButton2');
   fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
@@ -61,7 +61,7 @@ var uploader = document.getElementById('uploader2');
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-    uploader.value = percentage;
+    uploader2.value = percentage;
 
   }, function error(err) {
 
