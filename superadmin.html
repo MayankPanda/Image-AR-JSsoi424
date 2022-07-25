@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Firebase Web Basics</title>
+	<title>Super Admin Panel</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
 
@@ -16,14 +16,14 @@
     <input type="text" id="myText" placeholder="Enter">
     <br>
     <br> -->
-    <h1>2D File Upload</h1>
+    <h1>Upload Asset Bundle</h1>
 		<progress id="uploader" value="0" max="100">0%</progress>
 		<input type="file" id="fileButton" value="upload"/>
     <br>
-    <h1>3D File Upload</h1>
+    <!-- <h1>3D File Upload</h1>
 		<progress id="uploader2" value="0" max="100">0%</progress>
 		<input type="file" id="fileButton2" value="upload"/>
-	</div>
+	</div> -->
 
 
 
@@ -44,7 +44,7 @@
   var fileButton =         document.getElementById('fileButton');
   fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
-  var storageRef = firebase.storage().ref('imgx/'+file.name);
+  var storageRef = firebase.storage().ref('assetbundle/'+file.name);
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
@@ -57,23 +57,23 @@
 
   });
 });  
-var uploader2 = document.getElementById('uploader2');
-  var fileButton =         document.getElementById('fileButton2');
-  fileButton.addEventListener('change', function(e){
-  var file = e.target.files[0];
-  var storageRef = firebase.storage().ref('imgy/'+file.name);
-  var task = storageRef.put(file);
-  task.on('state_changed', function progress(snapshot) {
-    var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-    uploader2.value = percentage;
+// var uploader2 = document.getElementById('uploader2');
+//   var fileButton =         document.getElementById('fileButton2');
+//   fileButton.addEventListener('change', function(e){
+//   var file = e.target.files[0];
+//   var storageRef = firebase.storage().ref('imgy/'+file.name);
+//   var task = storageRef.put(file);
+//   task.on('state_changed', function progress(snapshot) {
+//     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+//     uploader2.value = percentage;
 
-  }, function error(err) {
+//   }, function error(err) {
 
 
-  },function complete() {
+//   },function complete() {
 
-  });
-});  
+//   });
+// });  
   
   
 </script>
